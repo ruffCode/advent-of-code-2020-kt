@@ -1,7 +1,7 @@
-object Day02 {
+object Day002 {
     val sample = "1-3 b: cdefg"
 
-    private val passwordList = PuzzleInput("day02.txt").readLines()
+    private val passwordList = PuzzleInput("day002.txt").readLines()
 
     @JvmStatic
     fun main(args: Array<String>) {

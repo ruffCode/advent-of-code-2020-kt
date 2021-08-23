@@ -1,6 +1,6 @@
-object Day01 {
+object Day001 {
 
-    private val input = PuzzleInput("day01.txt").readLines().map { it.toInt() }
+    private val input = PuzzleInput("day001.txt").readLines().map { it.toInt() }
 
     internal fun partOne(input: List<Int>): Int {
         var result = 0

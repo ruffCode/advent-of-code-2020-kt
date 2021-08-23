@@ -2,9 +2,9 @@ import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.shouldBe
 import java.math.BigInteger
 
-class Day03Test : ShouldSpec({
+class Day003Test : ShouldSpec({
 
-    val puzzle = Day03
+    val puzzle = Day003
     val input = """
         ..##.......
         #...#...#..
@@ -28,7 +28,7 @@ class Day03Test : ShouldSpec({
         }
         context("Cleaned up solution") {
             should("return correct number of trees") {
-                puzzle.partOneCleaner(input, vectors.first()) shouldBe 7
+                puzzle.partOneBetter(input, vectors.first()) shouldBe 7
             }
         }
     }
@@ -40,7 +40,7 @@ class Day03Test : ShouldSpec({
         }
         context("Cleaned up solution") {
             should("return correct number of trees") {
-                puzzle.partTwoCleaner(input, vectors) shouldBe BigInteger.valueOf(336)
+                puzzle.partTwoBetter(input, vectors) shouldBe BigInteger.valueOf(336)
             }
         }
     }

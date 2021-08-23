@@ -7,3 +7,5 @@ object PuzzleInput {
         return File(path)
     }
 }
+
+val newLine = System.lineSeparator()

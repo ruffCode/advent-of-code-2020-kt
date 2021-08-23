@@ -1,11 +1,11 @@
-import Day04.getPassports
-import Day04.getPassportsBetter
+import Day004.getPassports
+import Day004.getPassportsBetter
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.shouldBe
 
-class Day04Test : ShouldSpec() {
+class Day004Test : ShouldSpec() {
 
-    private val puzzle = Day04
+    private val puzzle = Day004
 
     private val invalidPassports = """
         eyr:1972 cid:100
@@ -39,17 +39,17 @@ class Day04Test : ShouldSpec() {
     """.trimIndent()
 
     private val allPassports = validPassports + "\n\n" + invalidPassports
-    val input = PuzzleInput("day04-sample.txt")
+    val input = PuzzleInput("day004-sample.txt")
 
     init {
         context("Part One") {
 
-            context("original") {
+            context("My solution") {
                 should("return number of passports not missing any fields other than cid") {
                     input.readLines().getPassports().size shouldBe 2
                 }
             }
-            context("cleaner") {
+            context("Alternate solution") {
                 should("return number of passports not missing any fields other than cid") {
                     input.readText().getPassportsBetter().size shouldBe 2
                 }
@@ -86,12 +86,12 @@ class Day04Test : ShouldSpec() {
                     }
                 }
             }
-            context("original") {
+            context("My solution") {
                 should("return the correct number of valid passports") {
                     puzzle.checkPassport(allPassports.reader().readLines()) shouldBe 4
                 }
             }
-            context("cleaned up") {
+            context("Alternate solution") {
                 should("return the correct number of valid passports") {
                     puzzle.checkPassportsBetter(allPassports.reader().readText()) shouldBe 4
                 }

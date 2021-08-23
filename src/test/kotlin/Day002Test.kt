@@ -1,9 +1,9 @@
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.ints.shouldBeExactly
 
-class Day02Test : FunSpec({
+class Day002Test : FunSpec({
 
-    val puzzle = Day02
+    val puzzle = Day002
     val input = """
         1-3 a: abcde
         1-3 b: cdefg

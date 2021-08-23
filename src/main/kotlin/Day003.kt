@@ -1,16 +1,16 @@
 import java.math.BigInteger
 
-object Day03 {
+object Day003 {
 
-    private val input = PuzzleInput("day03.txt").readLines()
+    private val input = PuzzleInput("day003.txt").readLines()
 
     @JvmStatic
     fun main(args: Array<String>) {
         val vectors = listOf(1 to 1, 3 to 1, 5 to 1, 7 to 1, 1 to 2)
         println(partOne(input, vectors.last()))
-        println(partOneCleaner(input, 1 to 2))
+        println(partOneBetter(input, 1 to 2))
         println(partTwo(input, vectors))
-        println(partTwoCleaner(input, vectors))
+        println(partTwoBetter(input, vectors))
     }
 
     internal fun partOne(field: List<String>, vector: Vector): Int {
@@ -38,7 +38,7 @@ object Day03 {
     internal fun partTwo(field: List<String>, vectors: List<Vector>): BigInteger =
         vectors.map { partOne(field, it).toBigInteger() }.reduce { a, b -> a * b }
 
-    internal fun partOneCleaner(field: List<String>, vector: Vector): Int {
+    internal fun partOneBetter(field: List<String>, vector: Vector): Int {
         val (dx, dy) = vector
         val width = field.first().length
         val count = field.indices.count { y ->
@@ -47,8 +47,8 @@ object Day03 {
         return count
     }
 
-    internal fun partTwoCleaner(field: List<String>, vectors: List<Vector>): BigInteger =
-        vectors.map { partOneCleaner(field, it).toBigInteger() }.reduce { a, b -> a * b }
+    internal fun partTwoBetter(field: List<String>, vectors: List<Vector>): BigInteger =
+        vectors.map { partOneBetter(field, it).toBigInteger() }.reduce { a, b -> a * b }
 }
 
 internal typealias Vector = Pair<Int, Int>

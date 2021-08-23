@@ -1,5 +1,5 @@
-object Day04 {
-    private val input = PuzzleInput("day04-sample.txt")
+object Day004 {
+    private val input = PuzzleInput("day004.txt")
 
     internal fun List<String>.getPassports(): List<PassportMap> {
         val result = mutableListOf<String>()
@@ -36,7 +36,7 @@ object Day04 {
 
     internal fun String.getPassportsBetter(): List<PassportMap> {
         return trim()
-            .split("\n\n", "\r\n\r\n")
+            .split("$newLine$newLine")
             .map { passportMapFromString(it) }.filter { it.isValid() }
     }
 
@@ -67,7 +67,7 @@ internal fun PassportMap.isValid(): Boolean =
     this.keys.containsAll(listOf("iyr", "byr", "eyr", "hgt", "hcl", "ecl", "pid"))
 
 internal fun passportMapFromString(input: String): PassportMap {
-    return input.split(" ", "\n", "\r\n").associate {
+    return input.split(" ", newLine).associate {
         val (k, v) = it.split(":")
         k to v
     }

@@ -2,9 +2,9 @@ import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.ints.shouldBeExactly
 import io.kotest.matchers.shouldBe
 
-class Day01Test : FunSpec({
+class Day001Test : FunSpec({
 
-    val puzzle = Day01
+    val puzzle = Day001
     val input = """
         1721
         979
