@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.21"
-    id("org.jlleitschuh.gradle.ktlint") version "10.1.0"
-    id("org.jlleitschuh.gradle.ktlint-idea").version("10.1.0")
+    kotlin("jvm") version "1.5.31"
+    id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
+    id("org.jlleitschuh.gradle.ktlint-idea").version("10.2.0")
 }
 
 group = "tech.alexib"
@@ -12,9 +12,9 @@ version = "1.0.0"
 repositories {
     mavenCentral()
 }
-val kotestVersion = "4.6.1"
+val kotestVersion = "4.6.3"
 dependencies {
-    testImplementation("org.jetbrains.kotlin:kotlin-test:1.5.21")
+    testImplementation("org.jetbrains.kotlin:kotlin-test:1.5.31")
     testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
     testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
     testImplementation("io.kotest:kotest-property:$kotestVersion")
