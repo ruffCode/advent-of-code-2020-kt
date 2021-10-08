@@ -60,49 +60,48 @@ object Day008 {
 }
 
 sealed class Instruction {
-    abstract val argument: Int
 
-    data class Acc(override val argument: Int) : Instruction()
-    data class NOp(override val argument: Int) : Instruction()
-    data class Jmp(override val argument: Int) : Instruction()
+    data class Acc(val argument: Int) : Instruction()
+    data class NOp(val argument: Int) : Instruction()
+    data class Jmp(val argument: Int) : Instruction()
 }
 
 class InstructionRunner(private val instructions: List<Instruction>) {
 
-    private var currentInstructions = instructions.toMutableList()
+    private var currentInstructions = instructions
 
     private var currentRun = 0
-    private val ops = instructions.mapIndexedNotNull { index, instruction ->
-        if (instruction is Instruction.Jmp || instruction is Instruction.NOp) index
-        else null
-    }.toMutableList()
+    private val ops by lazy {
+        instructions.mapIndexedNotNull { index, instruction ->
+            if (instruction is Instruction.Jmp || instruction is Instruction.NOp) index
+            else null
+        }.toMutableList()
+    }
 
-    private fun MutableList<Instruction>.switch(pos: Int): MutableList<Instruction> {
-        val next = when (val curr = this[pos]) {
+    private fun switch(pos: Int): List<Instruction> {
+        val newInstructions = instructions.toMutableList()
+
+        newInstructions[pos] = when (val curr = newInstructions[pos]) {
             is Instruction.Jmp -> Instruction.NOp(0)
             is Instruction.NOp -> Instruction.Jmp(curr.argument)
             else -> throw IllegalArgumentException("Instruction should not be Acc")
         }
-
-        this[pos] = next
-        return this
+        return newInstructions
     }
 
     private fun next() {
         val op = ops[currentRun]
-        currentInstructions = instructions.toMutableList().switch(op)
+
+        currentInstructions = switch(op)
         currentRun++
     }
 
     fun run(): Int {
-        var executionCount = 0
         var acc: Int
 
         while (true) {
-            executionCount++
             acc = currentInstructions.execute()
             if (acc != 0) break
-            if (executionCount > currentInstructions.size * 2) break
             next()
         }
 
@@ -114,13 +113,12 @@ class InstructionRunner(private val instructions: List<Instruction>) {
         var idx = 0
         var numRun = 0
 
-        while (true) {
-            numRun++
-            if (numRun >= this.size) {
+        while (idx in indices) {
+            if (numRun !in indices) {
                 acc = 0
                 break
             }
-            if (idx == this.lastIndex) break
+            numRun++
             when (val curr = this[idx]) {
                 is Instruction.Acc -> {
                     acc += curr.argument

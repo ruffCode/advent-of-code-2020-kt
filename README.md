@@ -53,3 +53,7 @@ inefficient solution (at least for part one).
 Probably not the most elegant solution to part two. I imagine there's a mathematical way to calculate whether the 
 program would complete, maybe a solution using queues as well. Can't wait to see what the official solution is.
 To be continued...
+ 
+*annnnd I'm back*
+
+Pretty happy to see that my solution was pretty close to @SebastianAigner 's
