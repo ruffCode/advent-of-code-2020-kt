@@ -26,6 +26,14 @@ tasks.test {
 
 tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "11"
+    kotlinOptions {
+        freeCompilerArgs = listOf(
+            "-Xjsr305=strict",
+            "-Xopt-in=kotlin.Experimental",
+            "-Xjvm-default=enable",
+            "-Xopt-in=kotlin.time.ExperimentalTime"
+        )
+    }
 }
 
 ktlint {

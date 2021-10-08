@@ -45,3 +45,6 @@ fun partTwoCorrect(input: String): Int =
         input.getGroups().map { it.split(newLine).map { s -> s.toSet() } }
             .sumOf { it.fold(it.first()) { a, b -> a intersect b }.count() }
 ```
+### Day 7 notes
+This may have been only my second time seeing a tree problem. I didn't recognize it and came up with an extremely 
+inefficient solution (at least for part one).
