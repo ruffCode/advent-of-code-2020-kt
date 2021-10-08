@@ -6,6 +6,8 @@ object PuzzleInput {
             ?: throw IllegalStateException("missing input $fileName")
         return File(path)
     }
+
+    fun File.toStingList() = readText().split(newLine)
 }
 
 val newLine = System.lineSeparator()

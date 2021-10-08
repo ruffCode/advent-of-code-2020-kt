@@ -57,3 +57,11 @@ To be continued...
 *annnnd I'm back*
 
 Pretty happy to see that my solution was pretty close to @SebastianAigner 's
+
+
+
+### Day 9 notes
+Got pretty stuck on part two. As usual, I was amazed by the beautiful simplicity of Svetlana Isakova's solution; she writes
+the most beautiful code. 
+
+Was getting a little frustrated being stuck... a good time to remind myself that I'm just learning algos.
