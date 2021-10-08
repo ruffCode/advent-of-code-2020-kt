@@ -48,3 +48,8 @@ fun partTwoCorrect(input: String): Int =
 ### Day 7 notes
 This may have been only my second time seeing a tree problem. I didn't recognize it and came up with an extremely 
 inefficient solution (at least for part one).
+
+### Day 8 notes
+Probably not the most elegant solution to part two. I imagine there's a mathematical way to calculate whether the 
+program would complete, maybe a solution using queues as well. Can't wait to see what the official solution is.
+To be continued...
